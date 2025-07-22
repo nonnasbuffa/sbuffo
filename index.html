@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shush!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #232526, #414345);
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .enter-img {
+            width: 180px;
+            height: 180px;
+            transition: width 0.3s cubic-bezier(.4,2,.3,1), height 0.3s cubic-bezier(.4,2,.3,1), transform 0.6s cubic-bezier(.4,2,.3,1), opacity 0.6s cubic-bezier(.4,2,.3,1);
+            border-radius: 0;
+            box-shadow: none;
+            cursor: pointer;
+            user-select: none;
+            background: none;
+        }
+        .explode {
+            transform: scale(8) rotate(20deg);
+            opacity: 0;
+            transition: transform 0.6s cubic-bezier(.4,2,.3,1), opacity 0.6s cubic-bezier(.4,2,.3,1);
+        }
+    </style>
+</head>
+<body>
+    <img src="https://i.imgur.com/dFmSx4n.png" alt="Enter" class="enter-img" id="enterImg">
+    <script>
+        const enterImg = document.getElementById('enterImg');
+        let clickCount = 0;
+        const sizes = [180, 220, 270, 330, 400];
+        enterImg.onclick = () => {
+            if (clickCount < sizes.length - 1) {
+                clickCount++;
+                enterImg.style.width = sizes[clickCount] + 'px';
+                enterImg.style.height = sizes[clickCount] + 'px';
+            } else if (clickCount === sizes.length - 1) {
+                // Giant and explode animation
+                enterImg.style.width = '600px';
+                enterImg.style.height = '600px';
+                setTimeout(() => {
+                    enterImg.classList.add('explode');
+                }, 350);
+                setTimeout(() => {
+                    window.location.href = 'main.html';
+                }, 1000);
+            }
+        };
+    </script>
+</body>
+</html>

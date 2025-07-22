@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>nonna sbuffa</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Comic+Sans+MS:wght@400;700&display=swap');
+        body, h1, h2, h3, h4, h5, h6, p, a, button, li, ul, .scroll-section {
+            font-family: 'Comic Sans MS', 'Comic Sans', cursive !important;
+        }
+        body {
+            background: url('https://i.imgur.com/bpXRKuI.jpeg') no-repeat center center fixed;
+            background-size: 100vw 100vh;
+            margin: 0;
+            min-height: 100vh;
+            font-family: 'Roboto', Arial, sans-serif;
+            color: #e0e0e0;
+        }
+        .container {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 3rem 1rem 2rem 1rem;
+        }
+        h1 {
+            text-align: center;
+            color: #fff;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+        /* .scroll-section styles removed */
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 28px;
+            margin-top: 8rem;
+        }
+        .game-select-btn {
+            background: rgba(24, 25, 26, 0.85);
+            color: #fff;
+            border: none;
+            border-radius: 12px;
+            padding: 1.2rem 0.5rem;
+            font-size: 1.15rem;
+            font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+            font-weight: 700;
+            cursor: pointer;
+            text-align: center;
+            transition: background 0.2s, transform 0.2s;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+            width: 180px;
+            justify-self: center;
+        }
+        .game-select-btn:hover {
+            background: #00bcd4;
+            color: #18191a;
+            transform: scale(1.07);
+        }
+    </style>
+</head>
+<body>
+    <div id="settings-gear" onclick="toggleBackground()" style="position:fixed;top:14px;left:14px;z-index:1000;cursor:pointer;width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.18);border-radius:50%;overflow:hidden;">
+        <img src="https://i.imgur.com/TZKbhil.jpeg" alt="settings" style="width:40px;height:40px;object-fit:cover;display:block;border-radius:50%;" />
+    </div>
+        <h1>nonna sbuffa</h1>
+        <audio id="audio1" src="sbuffo.mp3"></audio>
+        <audio id="audio2" src="sbuffo sempre.mp3"></audio>
+        <audio id="audio3" src="uffa.mp3"></audio>
+        <audio id="audio4" src="ano ano ano.mp3"></audio>
+        <audio id="audio5" src="cosa vuoi.mp3"></audio>
+        <audio id="audio6" src="oddio.mp3"></audio>
+        <script>
+        function playAudio(id) {
+            var audio = document.getElementById(id);
+            audio.currentTime = 0;
+            audio.play();
+        }
+        // Background toggle logic
+        var bg1 = 'https://i.imgur.com/bpXRKuI.jpeg';
+        var bg2 = 'https://i.imgur.com/4qMdmCE.jpeg';
+        var currentBg = 1;
+        function toggleBackground() {
+            currentBg = currentBg === 1 ? 2 : 1;
+            document.body.style.backgroundImage = `url('${currentBg === 1 ? bg1 : bg2}')`;
+        }
+        </script>
+        <div class="games-grid" style="grid-template-columns: repeat(2, 1fr);">
+            <button class="game-select-btn" onclick="playAudio('audio1')">sbuffo</button>
+            <button class="game-select-btn" onclick="playAudio('audio2')">sbuffo sempre</button>
+            <button class="game-select-btn" onclick="playAudio('audio3')">uffa</button>
+            <button class="game-select-btn" onclick="playAudio('audio4')">ano ano ano</button>
+            <button class="game-select-btn" onclick="playAudio('audio5')">cosa vuoi</button>
+            <button class="game-select-btn" onclick="playAudio('audio6')">oddio</button>
+        </div>
+        <p style="position:fixed;left:0;right:0;bottom:18px;text-align:center;font-size:1.5rem;color:#fff;opacity:0.85;z-index:1001;pointer-events:none;">creato da emmanuel, nipote della sbuffo queen</p>
+    </div>
+</body>
+</html>
