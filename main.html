@@ -28,6 +28,27 @@
             font-weight: 700;
             margin-bottom: 2rem;
             font-family: 'Comic Sans MS', 'Comic Sans', cursive !important;
+            background: linear-gradient(90deg, #ff6f91, #ffd86f, #6fc3ff, #b36fff, #ff6f91);
+            background-size: 200% auto;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: waveTitle 2.5s infinite linear alternate, gradientMove 4s infinite linear;
+            display: inline-block;
+        }
+
+        @keyframes waveTitle {
+            0% { transform: translateY(0) rotate(-2deg) scale(1); }
+            20% { transform: translateY(-6px) rotate(2deg) scale(1.04); }
+            40% { transform: translateY(2px) rotate(-2deg) scale(1.01); }
+            60% { transform: translateY(-4px) rotate(2deg) scale(1.03); }
+            80% { transform: translateY(1px) rotate(-1deg) scale(1.01); }
+            100% { transform: translateY(0) rotate(-2deg) scale(1); }
+        }
+
+        @keyframes gradientMove {
+            0% { background-position: 0% 50%; }
+            100% { background-position: 100% 50%; }
         }
         /* .scroll-section styles removed */
         .games-grid {
@@ -57,13 +78,38 @@
             color: #18191a;
             transform: scale(1.07);
         }
+
+        .game-select-btn:hover span,
+        .galleria-btn:hover span {
+            animation: waveTitle 2.5s infinite linear alternate;
+            color: inherit !important;
+            background: none !important;
+            -webkit-background-clip: initial !important;
+            -webkit-text-fill-color: initial !important;
+            background-clip: initial !important;
+            display: inline-block;
+        }
+
+        .galleria-btn {
+            width: 250px;
+            max-width: 95vw;
+            font-size: 1.35rem;
+            margin-top: 0.5rem;
+        }
+
+        .galleria-btn:hover {
+            background: #e53935 !important;
+            color: #fff !important;
+        }
     </style>
 </head>
 <body>
     <div id="settings-gear" onclick="toggleBackground()" style="position:fixed;top:14px;left:14px;z-index:1000;cursor:pointer;width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.18);border-radius:50%;overflow:hidden;">
         <img src="https://i.imgur.com/TZKbhil.jpeg" alt="settings" style="width:40px;height:40px;object-fit:cover;display:block;border-radius:50%;" />
     </div>
-        <h1>nonna sbuffa</h1>
+    <div style="width:100vw;display:flex;justify-content:center;align-items:flex-start;margin-top:2.5rem;margin-bottom:-1.5rem;">
+        <h1 style="margin-bottom:0;">nonna sbuffa</h1>
+    </div>
         <audio id="audio1" src="sbuffo.mp3"></audio>
         <audio id="audio2" src="sbuffo sempre.mp3"></audio>
         <audio id="audio3" src="uffa.mp3"></audio>
@@ -88,14 +134,17 @@
         }
         </script>
         <div class="games-grid" style="grid-template-columns: repeat(2, 1fr);">
-            <button class="game-select-btn" onclick="playAudio('audio1')">sbuffo</button>
-            <button class="game-select-btn" onclick="playAudio('audio2')">sbuffo sempre</button>
-            <button class="game-select-btn" onclick="playAudio('audio3')">uffa</button>
-            <button class="game-select-btn" onclick="playAudio('audio4')">ano ano ano</button>
-            <button class="game-select-btn" onclick="playAudio('audio5')">cosa vuoi</button>
-            <button class="game-select-btn" onclick="playAudio('audio6')">oddio</button>
-            <button class="game-select-btn" onclick="playAudio('audio7')">esmettila!</button>
-            <button class="game-select-btn" onclick="playAudio('audio8')">tuta di ferro</button>
+            <button class="game-select-btn" onclick="playAudio('audio1')"><span>sbuffo</span></button>
+            <button class="game-select-btn" onclick="playAudio('audio2')"><span>sbuffo sempre</span></button>
+            <button class="game-select-btn" onclick="playAudio('audio3')"><span>uffa</span></button>
+            <button class="game-select-btn" onclick="playAudio('audio4')"><span>ano ano ano</span></button>
+            <button class="game-select-btn" onclick="playAudio('audio5')"><span>cosa vuoi</span></button>
+            <button class="game-select-btn" onclick="playAudio('audio6')"><span>oddio</span></button>
+            <button class="game-select-btn" onclick="playAudio('audio7')"><span>esmettila!</span></button>
+            <button class="game-select-btn" onclick="playAudio('audio8')"><span>tuta di ferro</span></button>
+        </div>
+        <div style="display:flex;justify-content:center;margin-top:2.5rem;">
+            <button class="game-select-btn galleria-btn" onclick="window.location.href='galleria.html'"><span>galleria</span></button>
         </div>
         <p style="position:fixed;left:0;right:0;bottom:18px;text-align:center;font-size:1.5rem;color:#fff;opacity:0.85;z-index:1001;pointer-events:none;">creato da emmanuel, nipote della sbuffo queen</p>
     </div>

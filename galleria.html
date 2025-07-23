@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>galleria sbuffosa</title>
+    <style>
+        body {
+            background: #181818;
+            color: #fff;
+            min-height: 100vh;
+            margin: 0;
+            font-family: 'Segoe UI', Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+        }
+        .gallery {
+            width: 100vw;
+            max-width: 100vw;
+            margin-top: 40px;
+            padding: 0;
+        }
+        .square-row {
+            display: flex;
+            align-items: center;
+            height: 38vw;
+            margin-bottom: 5vw;
+        }
+        .square-row.right {
+            justify-content: flex-end;
+        }
+        .square-row.left {
+            justify-content: flex-start;
+        }
+        .square {
+            width: 80vw;
+            max-width: 340px;
+            height: 80vw;
+            max-height: 340px;
+            margin-left: 3vw;
+            margin-right: 3vw;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px #0006;
+        }
+        @media (min-width: 600px) {
+            .square {
+                width: 340px;
+                height: 340px;
+            }
+            .square-row {
+                height: 360px;
+                margin-bottom: 40px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>galleria</h1>
+    <div class="gallery">
+        <div class="square-row left"><div class="square" style="background: url('https://i.imgur.com/AjIHrP2.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
+        <div class="square-row right"><div class="square" style="background: url('https://i.imgur.com/dOJps5M.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
+        <div class="square-row left"><div class="square" style="background: url('https://i.imgur.com/0kPruAL.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
+        <div class="square-row right"><div class="square" style="background: url('https://i.imgur.com/I9z3EA0.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
+        <div class="square-row left"><div class="square" style="background: url('https://i.imgur.com/0Yfh2iq.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
+        <div class="square-row right"><div class="square" style="background: url('https://i.imgur.com/jJL1Xkz.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
+        <div class="square-row left"><div class="square" style="background: url('https://i.imgur.com/JZtjIbN.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
+        <div class="square-row right"><div class="square" style="background: url('https://i.imgur.com/o8TzX8N.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
+        <div class="square-row left"><div class="square" style="background: url('https://i.imgur.com/sIGoV6g.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
+        <div class="square-row right"><div class="square" style="background: url('https://i.imgur.com/OAen8cT.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
+        <div class="square-row left"><div class="square" style="background: url('https://i.imgur.com/97SWDm7.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
+        <div class="square-row right"><div class="square" style="background: url('https://i.imgur.com/tsJCBMl.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
+        <div class="square-row left"><div class="square" style="background: url('https://i.imgur.com/U1E5jEL.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
+        <div class="square-row right"><div class="square" style="background: url('https://i.imgur.com/EMcPTdU.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
+        <div class="square-row left"><div class="square" style="background: url('https://i.imgur.com/a6tOlec.png') center center/cover no-repeat; background-color: #fff;"></div></div>
+        <div class="square-row right"><div class="square" style="background: url('https://i.imgur.com/63gyy0J.png') center center/cover no-repeat; background-color: #fff;"></div></div>
+        <div class="square-row left"><div class="square" style="background: url('https://i.imgur.com/4pNJFvP.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
+        <div class="square-row right"><div class="square" style="background: url('https://i.imgur.com/okopUzn.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
+    </div>
+</body>
+</html>
