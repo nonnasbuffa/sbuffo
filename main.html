@@ -4,18 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>nonna sbuffa</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Comic+Sans+MS:wght@400;700&display=swap');
         body, h1, h2, h3, h4, h5, h6, p, a, button, li, ul, .scroll-section {
-            font-family: 'Comic Sans MS', 'Comic Sans', cursive !important;
+            font-family: Arial, Helvetica, sans-serif !important;
         }
         body {
             background: url('https://i.imgur.com/bpXRKuI.jpeg') no-repeat center center fixed;
             background-size: 100vw 100vh;
             margin: 0;
             min-height: 100vh;
-            font-family: 'Roboto', Arial, sans-serif;
+            font-family: Arial, Helvetica, sans-serif;
             color: #e0e0e0;
         }
         .container {
@@ -29,6 +27,7 @@
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 2rem;
+            font-family: 'Comic Sans MS', 'Comic Sans', cursive !important;
         }
         /* .scroll-section styles removed */
         .games-grid {
@@ -44,7 +43,7 @@
             border-radius: 12px;
             padding: 1.2rem 0.5rem;
             font-size: 1.15rem;
-            font-family: 'Comic Sans MS', 'Comic Sans', cursive;
+            font-family: Arial, Helvetica, sans-serif;
             font-weight: 700;
             cursor: pointer;
             text-align: center;
@@ -71,6 +70,8 @@
         <audio id="audio4" src="ano ano ano.mp3"></audio>
         <audio id="audio5" src="cosa vuoi.mp3"></audio>
         <audio id="audio6" src="oddio.mp3"></audio>
+        <audio id="audio7" src="esmettila!.mp3"></audio>
+        <audio id="audio8" src="tuta di ferro.mp3"></audio>
         <script>
         function playAudio(id) {
             var audio = document.getElementById(id);
@@ -93,6 +94,8 @@
             <button class="game-select-btn" onclick="playAudio('audio4')">ano ano ano</button>
             <button class="game-select-btn" onclick="playAudio('audio5')">cosa vuoi</button>
             <button class="game-select-btn" onclick="playAudio('audio6')">oddio</button>
+            <button class="game-select-btn" onclick="playAudio('audio7')">esmettila!</button>
+            <button class="game-select-btn" onclick="playAudio('audio8')">tuta di ferro</button>
         </div>
         <p style="position:fixed;left:0;right:0;bottom:18px;text-align:center;font-size:1.5rem;color:#fff;opacity:0.85;z-index:1001;pointer-events:none;">creato da emmanuel, nipote della sbuffo queen</p>
     </div>
