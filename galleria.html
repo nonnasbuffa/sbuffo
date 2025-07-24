@@ -16,11 +16,66 @@
             align-items: center;
             justify-content: flex-start;
         }
+        .return-btn {
+            background: #222;
+            color: #fff;
+            border: 1px solid #444;
+            border-radius: 5px;
+            padding: 8px 18px 8px 12px;
+            font-size: 1rem;
+            font-family: inherit;
+            box-shadow: 0 2px 8px #0008;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 20px;
+            margin-left: 20px;
+            transition: background 0.2s, color 0.2s, border 0.2s;
+        }
+        .return-btn:hover {
+            background: #333;
+            color: #2196f3;
+            border: 1px solid #2196f3;
+        }
+        .return-arrow {
+            font-size: 1.2em;
+            margin-right: 2px;
+        }
         .gallery {
             width: 100vw;
             max-width: 100vw;
             margin-top: 40px;
             padding: 0;
+        }
+        .download-btn {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            background: none;
+            color: #2196f3;
+            border: none;
+            border-radius: 0;
+            width: auto;
+            height: auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.2s, color 0.2s;
+            cursor: pointer;
+            box-shadow: none;
+            font-size: 1.7em;
+            padding: 0;
+        }
+        .square:hover .download-btn {
+            opacity: 1;
+        }
+        .download-btn:hover {
+            color: #1565c0;
+        }
+        .square {
+            position: relative;
         }
         .square-row {
             display: flex;
@@ -56,28 +111,48 @@
             }
         }
     </style>
+    <script>
+    function downloadImage(url, filename) {
+        fetch(url, {mode: 'cors'})
+            .then(response => response.blob())
+            .then(blob => {
+                const link = document.createElement('a');
+                link.href = URL.createObjectURL(blob);
+                link.download = filename;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+                URL.revokeObjectURL(link.href);
+            });
+    }
+    </script>
 </head>
 <body>
+    <div style="width:100%; display:flex; align-items:flex-start;">
+        <button class="return-btn" onclick="window.location.href='main.html'">
+            <span class="return-arrow">&#8592;</span> ritorna da nonna sbuffa
+        </button>
+    </div>
     <h1>galleria</h1>
     <div class="gallery">
-        <div class="square-row left"><div class="square" style="background: url('https://i.imgur.com/AjIHrP2.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
-        <div class="square-row right"><div class="square" style="background: url('https://i.imgur.com/dOJps5M.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
-        <div class="square-row left"><div class="square" style="background: url('https://i.imgur.com/0kPruAL.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
-        <div class="square-row right"><div class="square" style="background: url('https://i.imgur.com/I9z3EA0.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
-        <div class="square-row left"><div class="square" style="background: url('https://i.imgur.com/0Yfh2iq.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
-        <div class="square-row right"><div class="square" style="background: url('https://i.imgur.com/jJL1Xkz.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
-        <div class="square-row left"><div class="square" style="background: url('https://i.imgur.com/JZtjIbN.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
-        <div class="square-row right"><div class="square" style="background: url('https://i.imgur.com/o8TzX8N.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
-        <div class="square-row left"><div class="square" style="background: url('https://i.imgur.com/sIGoV6g.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
-        <div class="square-row right"><div class="square" style="background: url('https://i.imgur.com/OAen8cT.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
-        <div class="square-row left"><div class="square" style="background: url('https://i.imgur.com/97SWDm7.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
-        <div class="square-row right"><div class="square" style="background: url('https://i.imgur.com/tsJCBMl.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
-        <div class="square-row left"><div class="square" style="background: url('https://i.imgur.com/U1E5jEL.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
-        <div class="square-row right"><div class="square" style="background: url('https://i.imgur.com/EMcPTdU.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
-        <div class="square-row left"><div class="square" style="background: url('https://i.imgur.com/a6tOlec.png') center center/cover no-repeat; background-color: #fff;"></div></div>
-        <div class="square-row right"><div class="square" style="background: url('https://i.imgur.com/63gyy0J.png') center center/cover no-repeat; background-color: #fff;"></div></div>
-        <div class="square-row left"><div class="square" style="background: url('https://i.imgur.com/4pNJFvP.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
-        <div class="square-row right"><div class="square" style="background: url('https://i.imgur.com/okopUzn.jpeg') center center/cover no-repeat; background-color: #fff;"></div></div>
+        <div class="square-row left"><div class="square" style="background: url('https://i.imgur.com/AjIHrP2.jpeg') center center/cover no-repeat; background-color: #fff;"><button class="download-btn" onclick="downloadImage('https://i.imgur.com/AjIHrP2.jpeg','AjIHrP2.jpeg')" title="Scarica"><span>&#128190;</span></button></div></div>
+        <div class="square-row right"><div class="square" style="background: url('https://i.imgur.com/dOJps5M.jpeg') center center/cover no-repeat; background-color: #fff;"><button class="download-btn" onclick="downloadImage('https://i.imgur.com/dOJps5M.jpeg','dOJps5M.jpeg')" title="Scarica"><span>&#128190;</span></button></div></div>
+        <div class="square-row left"><div class="square" style="background: url('https://i.imgur.com/0kPruAL.jpeg') center center/cover no-repeat; background-color: #fff;"><button class="download-btn" onclick="downloadImage('https://i.imgur.com/0kPruAL.jpeg','0kPruAL.jpeg')" title="Scarica"><span>&#128190;</span></button></div></div>
+        <div class="square-row right"><div class="square" style="background: url('https://i.imgur.com/I9z3EA0.jpeg') center center/cover no-repeat; background-color: #fff;"><button class="download-btn" onclick="downloadImage('https://i.imgur.com/I9z3EA0.jpeg','I9z3EA0.jpeg')" title="Scarica"><span>&#128190;</span></button></div></div>
+        <div class="square-row left"><div class="square" style="background: url('https://i.imgur.com/0Yfh2iq.jpeg') center center/cover no-repeat; background-color: #fff;"><button class="download-btn" onclick="downloadImage('https://i.imgur.com/0Yfh2iq.jpeg','0Yfh2iq.jpeg')" title="Scarica"><span>&#128190;</span></button></div></div>
+        <div class="square-row right"><div class="square" style="background: url('https://i.imgur.com/jJL1Xkz.jpeg') center center/cover no-repeat; background-color: #fff;"><button class="download-btn" onclick="downloadImage('https://i.imgur.com/jJL1Xkz.jpeg','jJL1Xkz.jpeg')" title="Scarica"><span>&#128190;</span></button></div></div>
+        <div class="square-row left"><div class="square" style="background: url('https://i.imgur.com/JZtjIbN.jpeg') center center/cover no-repeat; background-color: #fff;"><button class="download-btn" onclick="downloadImage('https://i.imgur.com/JZtjIbN.jpeg','JZtjIbN.jpeg')" title="Scarica"><span>&#128190;</span></button></div></div>
+        <div class="square-row right"><div class="square" style="background: url('https://i.imgur.com/o8TzX8N.jpeg') center center/cover no-repeat; background-color: #fff;"><button class="download-btn" onclick="downloadImage('https://i.imgur.com/o8TzX8N.jpeg','o8TzX8N.jpeg')" title="Scarica"><span>&#128190;</span></button></div></div>
+        <div class="square-row left"><div class="square" style="background: url('https://i.imgur.com/sIGoV6g.jpeg') center center/cover no-repeat; background-color: #fff;"><button class="download-btn" onclick="downloadImage('https://i.imgur.com/sIGoV6g.jpeg','sIGoV6g.jpeg')" title="Scarica"><span>&#128190;</span></button></div></div>
+        <div class="square-row right"><div class="square" style="background: url('https://i.imgur.com/OAen8cT.jpeg') center center/cover no-repeat; background-color: #fff;"><button class="download-btn" onclick="downloadImage('https://i.imgur.com/OAen8cT.jpeg','OAen8cT.jpeg')" title="Scarica"><span>&#128190;</span></button></div></div>
+        <div class="square-row left"><div class="square" style="background: url('https://i.imgur.com/97SWDm7.jpeg') center center/cover no-repeat; background-color: #fff;"><button class="download-btn" onclick="downloadImage('https://i.imgur.com/97SWDm7.jpeg','97SWDm7.jpeg')" title="Scarica"><span>&#128190;</span></button></div></div>
+        <div class="square-row right"><div class="square" style="background: url('https://i.imgur.com/tsJCBMl.jpeg') center center/cover no-repeat; background-color: #fff;"><button class="download-btn" onclick="downloadImage('https://i.imgur.com/tsJCBMl.jpeg','tsJCBMl.jpeg')" title="Scarica"><span>&#128190;</span></button></div></div>
+        <div class="square-row left"><div class="square" style="background: url('https://i.imgur.com/U1E5jEL.jpeg') center center/cover no-repeat; background-color: #fff;"><button class="download-btn" onclick="downloadImage('https://i.imgur.com/U1E5jEL.jpeg','U1E5jEL.jpeg')" title="Scarica"><span>&#128190;</span></button></div></div>
+        <div class="square-row right"><div class="square" style="background: url('https://i.imgur.com/EMcPTdU.jpeg') center center/cover no-repeat; background-color: #fff;"><button class="download-btn" onclick="downloadImage('https://i.imgur.com/EMcPTdU.jpeg','EMcPTdU.jpeg')" title="Scarica"><span>&#128190;</span></button></div></div>
+        <div class="square-row left"><div class="square" style="background: url('https://i.imgur.com/a6tOlec.png') center center/cover no-repeat; background-color: #fff;"><button class="download-btn" onclick="downloadImage('https://i.imgur.com/a6tOlec.png','a6tOlec.png')" title="Scarica"><span>&#128190;</span></button></div></div>
+        <div class="square-row right"><div class="square" style="background: url('https://i.imgur.com/63gyy0J.png') center center/cover no-repeat; background-color: #fff;"><button class="download-btn" onclick="downloadImage('https://i.imgur.com/63gyy0J.png','63gyy0J.png')" title="Scarica"><span>&#128190;</span></button></div></div>
+        <div class="square-row left"><div class="square" style="background: url('https://i.imgur.com/4pNJFvP.jpeg') center center/cover no-repeat; background-color: #fff;"><button class="download-btn" onclick="downloadImage('https://i.imgur.com/4pNJFvP.jpeg','4pNJFvP.jpeg')" title="Scarica"><span>&#128190;</span></button></div></div>
+        <div class="square-row right"><div class="square" style="background: url('https://i.imgur.com/okopUzn.jpeg') center center/cover no-repeat; background-color: #fff;"><button class="download-btn" onclick="downloadImage('https://i.imgur.com/okopUzn.jpeg','okopUzn.jpeg')" title="Scarica"><span>&#128190;</span></button></div></div>
     </div>
 </body>
 </html>

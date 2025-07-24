@@ -101,6 +101,16 @@
             background: #e53935 !important;
             color: #fff !important;
         }
+        .canzone-btn {
+            width: 250px;
+            max-width: 95vw;
+            font-size: 1.35rem;
+            margin-top: 0.5rem;
+        }
+        .canzone-btn:hover {
+            background: #a259e4 !important;
+            color: #fff !important;
+        }
     </style>
 </head>
 <body>
@@ -108,7 +118,7 @@
         <img src="https://i.imgur.com/TZKbhil.jpeg" alt="settings" style="width:40px;height:40px;object-fit:cover;display:block;border-radius:50%;" />
     </div>
     <div style="width:100vw;display:flex;justify-content:center;align-items:flex-start;margin-top:2.5rem;margin-bottom:-1.5rem;">
-        <h1 style="margin-bottom:0;">nonna sbuffa</h1>
+        <h1 id="main-title" style="margin-bottom:0;">nonna sbuffa</h1>
     </div>
         <audio id="audio1" src="sbuffo.mp3"></audio>
         <audio id="audio2" src="sbuffo sempre.mp3"></audio>
@@ -118,11 +128,33 @@
         <audio id="audio6" src="oddio.mp3"></audio>
         <audio id="audio7" src="esmettila!.mp3"></audio>
         <audio id="audio8" src="tuta di ferro.mp3"></audio>
+        <audio id="audio9" src="nonna sbuffarancino.mp3"></audio>
         <script>
         function playAudio(id) {
             var audio = document.getElementById(id);
             audio.currentTime = 0;
             audio.play();
+            // Show music note if canzone is playing
+            if(id === 'audio9') {
+                showMusicNote();
+                audio.onended = function() { hideMusicNote(); };
+            }
+        }
+        function showMusicNote() {
+            var title = document.getElementById('main-title');
+            if (!document.getElementById('music-note')) {
+                var note = document.createElement('span');
+                note.id = 'music-note';
+                note.textContent = ' \u266B'; // Unicode music note
+                note.style.fontSize = '2.2rem';
+                note.style.color = '#a259e4';
+                note.style.marginLeft = '0.5rem';
+                title.appendChild(note);
+            }
+        }
+        function hideMusicNote() {
+            var note = document.getElementById('music-note');
+            if(note) note.remove();
         }
         // Background toggle logic
         var bg1 = 'https://i.imgur.com/bpXRKuI.jpeg';
@@ -145,6 +177,9 @@
         </div>
         <div style="display:flex;justify-content:center;margin-top:2.5rem;">
             <button class="game-select-btn galleria-btn" onclick="window.location.href='galleria.html'"><span>galleria</span></button>
+        </div>
+        <div style="display:flex;justify-content:center;margin-top:1.2rem;">
+            <button class="game-select-btn canzone-btn" onclick="playAudio('audio9')"><span>canzone</span></button>
         </div>
         <p style="position:fixed;left:0;right:0;bottom:18px;text-align:center;font-size:1.5rem;color:#fff;opacity:0.85;z-index:1001;pointer-events:none;">creato da emmanuel, nipote della sbuffo queen</p>
     </div>
