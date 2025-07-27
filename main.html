@@ -15,6 +15,8 @@
             min-height: 100vh;
             font-family: Arial, Helvetica, sans-serif;
             color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
         }
         .container {
             max-width: 700px;
@@ -58,7 +60,7 @@
             margin-top: 8rem;
         }
         .game-select-btn {
-            background: rgba(24, 25, 26, 0.85);
+            background: rgba(24, 25, 26, 0.72);
             color: #fff;
             border: none;
             border-radius: 12px;
@@ -95,6 +97,7 @@
             max-width: 95vw;
             font-size: 1.35rem;
             margin-top: 0.5rem;
+            background: rgba(24, 25, 26, 0.72);
         }
 
         .galleria-btn:hover {
@@ -106,20 +109,32 @@
             max-width: 95vw;
             font-size: 1.35rem;
             margin-top: 0.5rem;
+            background: rgba(24, 25, 26, 0.72);
         }
         .canzone-btn:hover {
             background: #a259e4 !important;
             color: #fff !important;
         }
+        .footer {
+            width: 100%;
+            text-align: center;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #fff;
+            font-size: 1.5rem;
+            opacity: 0.85;
+            padding: 18px 0 12px 0;
+            background: none;
+        }
     </style>
 </head>
 <body>
-    <div id="settings-gear" onclick="toggleBackground()" style="position:fixed;top:14px;left:14px;z-index:1000;cursor:pointer;width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.18);border-radius:50%;overflow:hidden;">
-        <img src="https://i.imgur.com/TZKbhil.jpeg" alt="settings" style="width:40px;height:40px;object-fit:cover;display:block;border-radius:50%;" />
-    </div>
-    <div style="width:100vw;display:flex;justify-content:center;align-items:flex-start;margin-top:2.5rem;margin-bottom:-1.5rem;">
-        <h1 id="main-title" style="margin-bottom:0;">nonna sbuffa</h1>
-    </div>
+    <div style="flex: 1 0 auto;">
+        <div id="settings-gear" onclick="toggleBackground()" style="position:fixed;top:14px;left:14px;z-index:1000;cursor:pointer;width:48px;height:48px;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.18);border-radius:50%;overflow:hidden;">
+            <img src="https://i.imgur.com/TZKbhil.jpeg" alt="settings" style="width:40px;height:40px;object-fit:cover;display:block;border-radius:50%;" />
+        </div>
+        <div style="width:100vw;display:flex;justify-content:center;align-items:flex-start;margin-top:2.5rem;margin-bottom:-1.5rem;">
+            <h1 id="main-title" style="margin-bottom:0;">nonna sbuffa</h1>
+        </div>
         <audio id="audio1" src="sbuffo.mp3"></audio>
         <audio id="audio2" src="sbuffo sempre.mp3"></audio>
         <audio id="audio3" src="uffa.mp3"></audio>
@@ -164,6 +179,7 @@
             currentBg = currentBg === 1 ? 2 : 1;
             document.body.style.backgroundImage = `url('${currentBg === 1 ? bg1 : bg2}')`;
         }
+
         </script>
         <div class="games-grid" style="grid-template-columns: repeat(2, 1fr);">
             <button class="game-select-btn" onclick="playAudio('audio1')"><span>sbuffo</span></button>
@@ -181,7 +197,9 @@
         <div style="display:flex;justify-content:center;margin-top:1.2rem;">
             <button class="game-select-btn canzone-btn" onclick="playAudio('audio9')"><span>canzone</span></button>
         </div>
-        <p style="position:fixed;left:0;right:0;bottom:18px;text-align:center;font-size:1.5rem;color:#fff;opacity:0.85;z-index:1001;pointer-events:none;">creato da emmanuel, nipote della sbuffo queen</p>
+
     </div>
+
+    <div class="footer" style="flex-shrink:0;">creato da emmanuel, nipote della sbuffo queen</div>
 </body>
 </html>
